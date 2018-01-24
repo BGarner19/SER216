@@ -70,40 +70,55 @@ public class Assignment1 extends JFrame {
                 hexToDecimalText.setText(decimal);
             }
         }
-    }
 
+        private String convertBinary(String binaryString) {
 
-    public static String convertBinary(String binaryString) {
+            long value = 0;
 
-        int value = 0;
+            for (int i = 0; i < binaryString.length(); i++) {
+                char ch = binaryString.charAt(i);
 
-        for (int i = 0; i < binaryString.length(); i++) {
-            char ch = binaryString.charAt(i);
+                try {
+                    if (ch == '0' || ch == '1') {
+                        value = value * 2 + binaryString.charAt(i) - '0';
+                    }
+                    else {
+                        throw new BinaryNumberFormatException(ch);
+                    }
+                }
+                catch (BinaryNumberFormatException ex) {
+                    return "Invalid format for a binary string - Illegal character: " + ex.getIllegalCharacter();
+                }
 
-            if (ch == '0' || ch == '1') {
-                value = value * 2 + binaryString.charAt(i) - '0';
             }
-            else {
-                throw new NumberFormatException("Illegal character: " + ch);
-            }
-        }
-        
-        return Integer.toString(value);
-    }
 
-    public static String convertHex(String hexString) {
-
-        long value = 0;
-        String digits = "0123456789ABCDEF";
-
-        hexString = hexString.toUpperCase();
-
-        for (int i = 0; i < hexString.length(); i++) {
-            char c = hexString.charAt(i);
-            int d = digits.indexOf(c);
-            value = 16*value + d;
+            return Long.toString(value);
         }
 
-        return Long.toString(value);
+        private String convertHex(String hexString) {
+
+            long value = 0;
+            String digits = "0123456789ABCDEF";
+
+            hexString = hexString.toUpperCase();
+
+            for (int i = 0; i < hexString.length(); i++) {
+                char ch = hexString.charAt(i);
+                int digit = digits.indexOf(ch);
+
+                try {
+                    if (digit != -1) {
+                        value = 16*value + digit;
+                    }
+                    else {
+                        throw new HexNumberFormatException(ch);
+                    }
+                }
+                catch (HexNumberFormatException ex) {
+                    return "Invalid format for a Hexadecimal string - Illegal character: " + ex.getIllegalCharacter();
+                }
+            }
+            return Long.toString(value);
+        }
     }
 }
