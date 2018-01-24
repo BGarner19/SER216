@@ -1,7 +1,16 @@
+/**
+ * @author Bailey Garner
+ * @version 1.0.0 Jan. 24, 2018
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+/**
+ * Assignment1 class creates the GUI using JFrame
+ */
 
 public class Assignment1 extends JFrame {
 
@@ -49,6 +58,11 @@ public class Assignment1 extends JFrame {
         convertHex.addActionListener(new ButtonListener());
     }
 
+    /**
+     * Main method to execute the program
+     * @param args arguments to execute the program
+     */
+
     public static void main(String[] args) {
         Assignment1 frame = new Assignment1();
         frame.pack();
@@ -58,7 +72,16 @@ public class Assignment1 extends JFrame {
         frame.setVisible(true);
     }
 
+    /**
+     * ButtonListener is a class that implements the ActionListener interface to handle events from button presses on the GUI
+     */
+
     private class ButtonListener implements ActionListener {
+
+        /**
+         * actionPerformed method implemented from ActionListener to define functionality of button presses
+         * @param event the event that triggers the listener
+         */
 
         public void actionPerformed(ActionEvent event) {
             if (event.getSource() == convertBinary) {
@@ -70,6 +93,13 @@ public class Assignment1 extends JFrame {
                 hexToDecimalText.setText(decimal);
             }
         }
+
+        /**
+         * convertBinary converts a given binary number to decimal format
+         * @param binaryString input containing a given binary number to convert
+         * @return a string containing the string representation of the decimal number conversion
+         * @throws BinaryNumberFormatException when given binaryString is incorrect
+         */
 
         private String convertBinary(String binaryString) {
 
@@ -94,6 +124,13 @@ public class Assignment1 extends JFrame {
 
             return Long.toString(value);
         }
+
+        /**
+         * convertHex converts a given hexadecimal number to decimal format
+         * @param hexString a given hexadecimal number in string format
+         * @return a string containing the string representation of the converted decimal
+         * @throws HexNumberFormatException when given hexString is of incorrect format
+         */
 
         private String convertHex(String hexString) {
 
