@@ -93,6 +93,17 @@ public class Assignment1 extends JFrame {
 
     public static String convertHex(String hexString) {
 
-        return "example";
+        long value = 0;
+        String digits = "0123456789ABCDEF";
+
+        hexString = hexString.toUpperCase();
+
+        for (int i = 0; i < hexString.length(); i++) {
+            char c = hexString.charAt(i);
+            int d = digits.indexOf(c);
+            value = 16*value + d;
+        }
+
+        return Long.toString(value);
     }
 }
