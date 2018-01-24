@@ -75,7 +75,20 @@ public class Assignment1 extends JFrame {
 
     public static String convertBinary(String binaryString) {
 
-        return "example";
+        int value = 0;
+
+        for (int i = 0; i < binaryString.length(); i++) {
+            char ch = binaryString.charAt(i);
+
+            if (ch == '0' || ch == '1') {
+                value = value * 2 + binaryString.charAt(i) - '0';
+            }
+            else {
+                throw new NumberFormatException("Illegal character: " + ch);
+            }
+        }
+        
+        return Integer.toString(value);
     }
 
     public static String convertHex(String hexString) {
