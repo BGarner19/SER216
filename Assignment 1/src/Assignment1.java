@@ -1,8 +1,9 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Assignment1 extends JFrame implements ActionListener {
+public class Assignment1 extends JFrame {
 
     private JTextField binaryText;
     private JTextField binaryToDecimalText;
@@ -13,6 +14,39 @@ public class Assignment1 extends JFrame implements ActionListener {
 
     public Assignment1() {
 
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(new GridLayout(3, 2));
+
+        binaryText = new JTextField(30);
+        binaryToDecimalText = new JTextField(30);
+        hexText = new JTextField(30);
+        hexToDecimalText = new JTextField(30);
+        convertBinary = new JButton("Convert to Decimal");
+        convertHex = new JButton("Convert to Decimal");
+
+        mainPanel.add(new Label("Binary String"));
+        mainPanel.add(binaryText);
+        mainPanel.add(new Label("Decimal String"));
+        mainPanel.add(binaryToDecimalText);
+        binaryToDecimalText.setEditable(false);
+        mainPanel.add(convertBinary);
+
+        JPanel bottomPanel = new JPanel();
+        bottomPanel.setLayout(new GridLayout(3, 2));
+
+        bottomPanel.add(new Label("Hexadecimal String"));
+        bottomPanel.add(hexText);
+        bottomPanel.add(new Label("Decimal String"));
+        bottomPanel.add(hexToDecimalText);
+        hexToDecimalText.setEditable(false);
+        bottomPanel.add(convertHex);
+
+
+        getContentPane().add(mainPanel, BorderLayout.CENTER);
+        getContentPane().add(bottomPanel, BorderLayout.SOUTH);
+
+        convertBinary.addActionListener(new ButtonListener());
+        convertHex.addActionListener(new ButtonListener());
     }
 
     public static void main(String[] args) {
@@ -24,7 +58,28 @@ public class Assignment1 extends JFrame implements ActionListener {
         frame.setVisible(true);
     }
 
-    public void actionPerformed(ActionEvent event) {
+    private class ButtonListener implements ActionListener {
 
+        public void actionPerformed(ActionEvent event) {
+            if (event.getSource() == convertBinary) {
+                String decimal = convertBinary(binaryText.getText());
+                binaryToDecimalText.setText(decimal);
+            }
+            else if (event.getSource() == convertHex) {
+                String decimal = convertHex(hexText.getText());
+                hexToDecimalText.setText(decimal);
+            }
+        }
+    }
+
+
+    public static String convertBinary(String binaryString) {
+
+        return "example";
+    }
+
+    public static String convertHex(String hexString) {
+
+        return "example";
     }
 }
