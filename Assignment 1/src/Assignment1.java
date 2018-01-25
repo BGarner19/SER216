@@ -21,6 +21,10 @@ public class Assignment1 extends JFrame {
     private JButton convertBinary;
     private JButton convertHex;
 
+    /**
+     * Assignment1 constructor constructs the GUI panels for both conversion functions
+     */
+
     public Assignment1() {
 
         JPanel mainPanel = new JPanel();
@@ -84,11 +88,12 @@ public class Assignment1 extends JFrame {
          */
 
         public void actionPerformed(ActionEvent event) {
-            if (event.getSource() == convertBinary) {
+            if (event.getSource().equals(convertBinary)) {
+
                 String decimal = convertBinary(binaryText.getText());
                 binaryToDecimalText.setText(decimal);
             }
-            else if (event.getSource() == convertHex) {
+            else if (event.getSource().equals(convertHex)) {
                 String decimal = convertHex(hexText.getText());
                 hexToDecimalText.setText(decimal);
             }
