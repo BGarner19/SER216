@@ -32,7 +32,7 @@ public class TestMagicSquare {
 
     }
 
-    public static boolean isSquare(ArrayList<Integer> numbers) {
+    private static boolean isSquare(ArrayList<Integer> numbers) {
 
         int root = (int) Math.sqrt(numbers.size());
 
