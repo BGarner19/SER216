@@ -4,6 +4,9 @@ public class MagicSquare {
 
     private int[][] square;
     private int squareSize;
+    private int[] rowSums;
+    private int[] colSums;
+    private int[] diagSums;
 
     public MagicSquare(ArrayList<Integer> numbers) {
 
@@ -23,37 +26,13 @@ public class MagicSquare {
 
     public boolean isMagic() {
 
-        int[] rowSums = new int[squareSize];
-        int [] colSums = new int[squareSize];
-        int[] diagSums = new int[2];
+        rowSums = new int[squareSize];
+        colSums = new int[squareSize];
+        diagSums = new int[2];
 
-        //SumRows
-
-        for (int i = 0; i < squareSize; i++) {
-            for (int j = 0; j < squareSize; j++) {
-                rowSums[i] += square[i][j];
-            }
-        }
-
-        //SumColumns
-
-        for (int i = 0; i < squareSize; i++) {
-            for (int j = 0; j < squareSize; j++) {
-                colSums[j] += square[i][j];
-            }
-        }
-
-        //SumDiagonals
-
-        for (int i = 0; i < squareSize; i++) {
-
-            diagSums[0] += square[i][i];
-        }
-
-        for (int i = squareSize - 1; i >= 0; i--) {
-            diagSums[1] += square[i][i];
-        }
-
+        sumRows();
+        sumColumns();
+        sumDiags();
 
         //Check if rows are all the same
 
@@ -80,5 +59,33 @@ public class MagicSquare {
         //Check if diagonals + rows are the same
 
         return diagSums[0] == rowSums[0] && diagSums[0] == colSums[0];
+    }
+
+    private void sumRows() {
+
+        for (int i = 0; i < squareSize; i++) {
+            for (int j = 0; j < squareSize; j++) {
+                rowSums[i] += square[i][j];
+            }
+        }
+    }
+
+    private void sumColumns() {
+        for (int i = 0; i < squareSize; i++) {
+            for (int j = 0; j < squareSize; j++) {
+                colSums[j] += square[i][j];
+            }
+        }
+    }
+
+    private void sumDiags() {
+        for (int i = 0; i < squareSize; i++) {
+
+            diagSums[0] += square[i][i];
+        }
+
+        for (int i = squareSize - 1; i >= 0; i--) {
+            diagSums[1] += square[i][i];
+        }
     }
 }
