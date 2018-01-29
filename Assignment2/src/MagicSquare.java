@@ -79,6 +79,6 @@ public class MagicSquare {
 
         //Check if diagonals + rows are the same
 
-        return diagSums[0] == rowSums[0] && diagSums[0] == colSums[0] && colSums[0] == rowSums[0];
+        return diagSums[0] == rowSums[0] && diagSums[0] == colSums[0];
     }
 }
