@@ -49,8 +49,5 @@ public class TestMagicSquare {
         catch (NumberFormatException ex) {
             System.out.println("Input invalid. Input must be only integers separated by spaces. False");
         }
-
-
-
     }
 }

@@ -13,12 +13,12 @@ import java.util.Set;
 
 public class MagicSquare {
 
-    private int[][] square;
+    private ArrayList<Integer> squareNumbers;
     private int squareSize;
+    private int[][] square;
     private int[] rowSums;
     private int[] colSums;
     private int[] diagSums;
-    private ArrayList<Integer> squareNumbers;
 
     /**
      * The class constructor takes in an ArrayList of integer numbers that are used to build the MagicSquare using a
@@ -28,7 +28,7 @@ public class MagicSquare {
 
     public MagicSquare(ArrayList<Integer> numbers) {
 
-        squareNumbers = new ArrayList<Integer>();
+        squareNumbers = new ArrayList<>();
         squareNumbers.addAll(numbers);
 
         squareSize = (int) Math.sqrt(numbers.size());
