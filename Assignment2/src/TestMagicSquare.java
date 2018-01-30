@@ -17,7 +17,8 @@ public class TestMagicSquare {
     /**
      * The main method runs the program, collects the integer inputs from the user, and checks if the given square is
      * magic or not.
-     * @param args
+     *
+     * @param args command line arguments passed to the main method
      */
 
     public static void main(String[] args) {
@@ -35,12 +36,6 @@ public class TestMagicSquare {
             for (String num : numbers) {
                 squareNumbers.add(Integer.parseInt(num));
             }
-        }
-        catch (NumberFormatException ex) {
-            System.out.println("Input invalid. Input must be only integers separated by spaces.");
-        }
-
-        if (isSquare(squareNumbers)) {
 
             MagicSquare newSquare = new MagicSquare(squareNumbers);
 
@@ -51,26 +46,11 @@ public class TestMagicSquare {
                 System.out.println("false");
             }
         }
-        else {
-            System.out.println("false");
+        catch (NumberFormatException ex) {
+            System.out.println("Input invalid. Input must be only integers separated by spaces. False");
         }
 
 
-    }
 
-    /**
-     * isSquare checks if the ArrayList of user input integers is a square. It accomplishes this by taking the square
-     * root of the size and making sure that, when squared, that root equals the size of the ArrayList.
-     *
-     * @param numbers the ArrayList of user input integers
-     * @return returns whether the root multiplied by the root is equal to the size of the ArrayList, and thus, that
-     * the given inputs can create a square
-     */
-
-    private static boolean isSquare(ArrayList<Integer> numbers) {
-
-        int root = (int) Math.sqrt(numbers.size());
-
-        return (root * root == numbers.size());
     }
 }

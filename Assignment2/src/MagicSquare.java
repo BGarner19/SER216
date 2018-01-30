@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * MagicSquare class builds a MagicSquare and contains all of the methods that are necessary to check if the given
@@ -16,6 +18,7 @@ public class MagicSquare {
     private int[] rowSums;
     private int[] colSums;
     private int[] diagSums;
+    private ArrayList<Integer> squareNumbers;
 
     /**
      * The class constructor takes in an ArrayList of integer numbers that are used to build the MagicSquare using a
@@ -24,6 +27,9 @@ public class MagicSquare {
      */
 
     public MagicSquare(ArrayList<Integer> numbers) {
+
+        squareNumbers = new ArrayList<Integer>();
+        squareNumbers.addAll(numbers);
 
         squareSize = (int) Math.sqrt(numbers.size());
 
@@ -49,6 +55,10 @@ public class MagicSquare {
      */
 
     public boolean isMagic() {
+
+        if (!isUnique(squareNumbers) || !isSquare(squareNumbers)) {
+            return false;
+        }
 
         rowSums = new int[squareSize];
         colSums = new int[squareSize];
@@ -123,5 +133,36 @@ public class MagicSquare {
         for (int i = squareSize - 1; i >= 0; i--) {
             diagSums[1] += square[i][i];
         }
+    }
+
+    /**
+     * isUnique checks if the given list of numbers contains any duplicate values. This is done by using a HashSet
+     * and checking if the HashSet size is smaller than the size of the list (which would mean there are duplicates in
+     * the list)
+     *
+     * @param numbers the ArrayList of user input integers
+     * @return true if there are no duplicates and false if there are duplicates
+     */
+
+    private boolean isUnique(ArrayList<Integer> numbers) {
+        Set<Integer> set = new HashSet<Integer>(numbers);
+
+        return !(set.size() < numbers.size());
+    }
+
+    /**
+     * isSquare checks if the ArrayList of user input integers is a square. It accomplishes this by taking the square
+     * root of the size and making sure that, when squared, that root equals the size of the ArrayList.
+     *
+     * @param numbers the ArrayList of user input integers
+     * @return returns whether the root multiplied by the root is equal to the size of the ArrayList, and thus, that
+     * the given inputs can create a square
+     */
+
+    private boolean isSquare(ArrayList<Integer> numbers) {
+
+        int root = (int) Math.sqrt(numbers.size());
+
+        return (root * root == numbers.size());
     }
 }
