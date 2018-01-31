@@ -33,11 +33,19 @@ public class TestMagicSquare {
         String[] numbers = input.split(" ");
 
         try {
+
+            int n = 0;
+
             for (String num : numbers) {
+
+                if (Integer.parseInt(num) > n) {
+                    n = Integer.parseInt(num);
+                }
+
                 squareNumbers.add(Integer.parseInt(num));
             }
 
-            MagicSquare newSquare = new MagicSquare(squareNumbers);
+            MagicSquare newSquare = new MagicSquare(squareNumbers, n);
 
             if (newSquare.isMagic()) {
                 System.out.println("true");

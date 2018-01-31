@@ -19,6 +19,7 @@ public class MagicSquare {
     private int[] rowSums;
     private int[] colSums;
     private int[] diagSums;
+    private int n;
 
     /**
      * The class constructor takes in an ArrayList of integer numbers that are used to build the MagicSquare using a
@@ -26,10 +27,11 @@ public class MagicSquare {
      * @param numbers an ArrayList of integer values used to build the MagicSquare
      */
 
-    public MagicSquare(ArrayList<Integer> numbers) {
+    public MagicSquare(ArrayList<Integer> numbers, int n) {
 
         squareNumbers = new ArrayList<>();
         squareNumbers.addAll(numbers);
+        this.n = n;
 
         squareSize = (int) Math.sqrt(numbers.size());
 
@@ -138,7 +140,7 @@ public class MagicSquare {
     /**
      * isUnique checks if the given list of numbers contains any duplicate values. This is done by using a HashSet
      * and checking if the HashSet size is smaller than the size of the list (which would mean there are duplicates in
-     * the list)
+     * the list) This method also checks that all of the numbers from 1.. n^2 are contained in the set.
      *
      * @param numbers the ArrayList of user input integers
      * @return true if there are no duplicates and false if there are duplicates
@@ -147,7 +149,17 @@ public class MagicSquare {
     private boolean isUnique(ArrayList<Integer> numbers) {
         Set<Integer> set = new HashSet<Integer>(numbers);
 
-        return !(set.size() < numbers.size());
+        if (set.size() < numbers.size()) {
+            return false;
+        }
+
+        for (int i = 1; i <= n; i++) {
+            if (!set.contains(i)) {
+                return false;
+            }
+        }
+
+        return true;
     }
 
     /**
@@ -165,4 +177,6 @@ public class MagicSquare {
 
         return (root * root == numbers.size());
     }
+
+
 }
