@@ -1,9 +1,7 @@
 package test;
 
-
 import core.Customer;
 import org.junit.*;
-
 import static org.junit.Assert.*;
 
 public class CustomerTest {
@@ -40,17 +38,29 @@ public class CustomerTest {
 
     }
 
+    /**
+     * Tests that the address is displayed properly.
+     */
+
     @Test
     public void testDisplayAddress() {
         assertEquals("501 E. Tyler Mall, Tempe, AZ 85281", customer.displayAddress());
     }
+
+    /**
+     * Tests that the address label is displayed properly with the name.
+     */
 
     @Test
     public void testDisplayAddressLabel() {
         assertEquals("Bailey Garner: 501 E. Tyler Mall, Tempe, AZ 85281", customer.displayAddressLabel());
     }
 
-    
+
+
+
+
+
 
 
 }

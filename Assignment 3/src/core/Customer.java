@@ -1,5 +1,13 @@
 package core;
 
+/**
+ * The customer class creates a customer using their name and address information. This class is used to return the
+ * information of the customer in a formatted style which would be usable as a label.
+ *
+ * @author Bailey Garner
+ * @version 1.0.0 February 6, 2018
+ */
+
 public class Customer {
 
     private String name;
@@ -9,15 +17,31 @@ public class Customer {
     private String zip;
     private int age;
 
+    /**
+     * Constructor creates a Customer object using their name and street address.
+     * @param name the name of the customer
+     * @param streetAddress the street address of the customer
+     */
+
     public Customer(String name, String streetAddress) {
         this.name = name;
         this.streetAddress = streetAddress;
     }
 
+    /**
+     * Formats the customers address
+     * @return A string containing the customers address in a nice format
+     */
+
     public String displayAddress() {
 
         return getStreetAddress() + ", " + getCity() + ", " + getState() + " " + getZip();
     }
+
+    /**
+     * Displays the customers address along with their name
+     * @return A string containing the customers name and address in a nice label format
+     */
 
     public String displayAddressLabel() {
         return getName() + ": " + getStreetAddress() + ", " + getCity() + ", " + getState() + " " + getZip();

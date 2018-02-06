@@ -1,11 +1,25 @@
 package core;
 
+/**
+ * The BankAccount class simulates several different types of bank accounts such as credit cards, savings, award
+ * savings, and checking accounts. This class contains methods that calculate interest rate and total balance of the
+ * different accounts given their interest rates.
+ *
+ * @author Bailey Garner
+ * @version 1.0.0 February 6, 2018
+ */
+
 public class BankAccount {
 
     private String accountNumber;
     private String accountHolder;
     private double balance;
     private int accountType;
+
+    /**
+     * The default constructor constructs a "blank" bank account with an unknown account number and unknown account
+     * holder. It also initializes the balance to 0 and accountType to the unknown value of 0.
+     */
 
     public BankAccount() {
 
@@ -15,6 +29,16 @@ public class BankAccount {
         accountType = 0;
     }
 
+    /**
+     * This constructor creates a bank account using a customers information and initializes the bank accounts values
+     * using the given parameters.
+     *
+     * @param accountNumber The account number identifying the account
+     * @param accountHolder The name of the account owner
+     * @param balance The current balance of the account
+     * @param accountType The type of the account. Integers correspond to account types.
+     */
+
     public BankAccount(String accountNumber, String accountHolder, double balance, int accountType) {
         this.accountNumber = accountNumber;
         this.accountHolder = accountHolder;
@@ -22,9 +46,23 @@ public class BankAccount {
         this.accountType = accountType;
     }
 
+    /**
+     * Calculates the total balance of the account given the interest rate and the current balance.
+     *
+     * @return A double containing the balance of the account after the interest rate calculation
+     */
+
     public double calculateTotalBalance() {
         return balance + (balance * getInterestRate()/100);
     }
+
+    /**
+     * Decides the interest rate based on the type of account. 1: Savings account .5%, 2: Award Savings 4.5%,
+     * 3: Checking, 1.0%, and 4: Credit Card, 15%. If any other account type is given then the interest rate is
+     * considered to be 0%.
+     *
+     * @return Returns the interest rate as a percentage.
+     */
 
     public double getInterestRate() {
 
