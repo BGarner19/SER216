@@ -1,6 +1,5 @@
 package test;
 
-
 import core.BankAccount;
 import org.junit.*;
 import static org.junit.Assert.*;
