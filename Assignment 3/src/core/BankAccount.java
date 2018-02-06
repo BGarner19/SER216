@@ -23,7 +23,7 @@ public class BankAccount {
     }
 
     public double calculateTotalBalance() {
-        return 0;
+        return balance + (balance * getInterestRate()/100);
     }
 
     public double getInterestRate() {
@@ -31,13 +31,13 @@ public class BankAccount {
         switch (accountType) {
 
             case 1:
-                return .005;
+                return .5;
             case 2:
-                return .045;
+                return 4.5;
             case 3:
-                return .01;
+                return 1;
             case 4:
-                return .15;
+                return 15;
             default:
                 return 0;
         }
