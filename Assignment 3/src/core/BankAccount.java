@@ -3,7 +3,8 @@ package core;
 /**
  * The BankAccount class simulates several different types of bank accounts such as credit cards, savings, award
  * savings, and checking accounts. This class contains methods that calculate interest rate and total balance of the
- * different accounts given their interest rates.
+ * different accounts given their interest rates. Currently there are no validity inputs on the account number or
+ * account holder as those did not exist
  *
  * @author Bailey Garner
  * @version 1.0.0 February 6, 2018
