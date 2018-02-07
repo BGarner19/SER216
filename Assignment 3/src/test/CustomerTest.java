@@ -35,7 +35,7 @@ public class CustomerTest {
 
     @After
     public void tearDown() throws Exception {
-
+        customer = null;
     }
 
     /**

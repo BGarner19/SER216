@@ -47,49 +47,109 @@ public class Customer {
         return getName() + ": " + getStreetAddress() + ", " + getCity() + ", " + getState() + " " + getZip();
     }
 
+    /**
+     *
+     * @return name parameter of the customer
+     */
+
     public String getName() {
         return name;
     }
+
+    /**
+     *
+     * @param name name of the customer
+     */
 
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     *
+     * @return customer street address
+     */
+
     public String getStreetAddress() {
         return streetAddress;
     }
+
+    /**
+     *
+     * @param streetAddress street address of customer
+     */
 
     public void setStreetAddress(String streetAddress) {
         this.streetAddress = streetAddress;
     }
 
+    /**
+     *
+     * @return city of customer
+     */
+
     public String getCity() {
         return city;
     }
+
+    /**
+     *
+     * @param city city of customer
+     */
 
     public void setCity(String city) {
         this.city = city;
     }
 
+    /**
+     *
+     * @return state of customer
+     */
+
     public String getState() {
         return state;
     }
+
+    /**
+     *
+     * @param state state of customer
+     */
 
     public void setState(String state) {
         this.state = state;
     }
 
+    /**
+     *
+     * @return zipcode of customer
+     */
+
     public String getZip() {
         return zip;
     }
+
+    /**
+     *
+     * @param zip zipcode of customer
+     */
 
     public void setZip(String zip) {
         this.zip = zip;
     }
 
+    /**
+     *
+     * @return age of customer
+     */
+
     public int getAge() {
         return age;
     }
+
+    /**
+     *
+     * @param age age of customer
+     */
 
     public void setAge(int age) {
         this.age = age;

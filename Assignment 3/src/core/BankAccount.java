@@ -81,33 +81,74 @@ public class BankAccount {
         }
     }
 
+    /**
+     *
+     * @return bank account number
+     */
+
     public String getAccountNumber() {
         return accountNumber;
     }
+
+    /**
+     *
+     * @param accountNumber bank account number
+     */
 
     public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
 
+    /**
+     *
+     * @return account holder of bank account
+     */
+
     public String getAccountHolder() {
         return accountHolder;
     }
+
+    /**
+     *
+     * @param accountHolder account holder of bank account
+     */
 
     public void setAccountHolder(String accountHolder) {
         this.accountHolder = accountHolder;
     }
 
+    /**
+     *
+     * @return balance of bank account as a double
+     */
+
     public double getBalance() {
         return balance;
     }
+
+    /**
+     *
+     * @param balance balance of bank account as a double
+     */
 
     public void setBalance(double balance) {
         this.balance = balance;
     }
 
+    /**
+     * Gets account type. Any integer will work but only 1-4 are actual account types that don't default to other
+     * @return type of account 1-savings 2-award savings 3-checking 4-credit card
+     */
+
     public int getAccountType() {
         return accountType;
     }
+
+    /**
+     * Sets account type. Any integer will work but only 1-4 are actual account types that don't default to other
+     *
+     * @param accountType Type of account 1-savings 2-award savings 3-checking 4-credit card
+     */
 
     public void setAccountType(int accountType) {
         this.accountType = accountType;
