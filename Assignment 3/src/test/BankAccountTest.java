@@ -4,6 +4,15 @@ import core.BankAccount;
 import org.junit.*;
 import static org.junit.Assert.*;
 
+/**
+ * This class is a test class that tests BankAccount. Each individual account type is tested as well as their interest
+ * values. A given balance is tested with each interest type to make sure that the interest calculations are correct
+ * for all account types.
+ *
+ * @author Bailey Garner
+ * @version 1.0.0 February 7, 2018
+ */
+
 public class BankAccountTest {
 
     private BankAccount account;
