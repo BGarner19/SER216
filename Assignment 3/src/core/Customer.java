@@ -2,7 +2,8 @@ package core;
 
 /**
  * The customer class creates a customer using their name and address information. This class is used to return the
- * information of the customer in a formatted style which would be usable as a label.
+ * information of the customer in a formatted style which would be usable as a label. Since there are no validity tests
+ * currently on any of the inputs, in theory the address/name can be anything that is a valid string.
  *
  * @author Bailey Garner
  * @version 1.0.0 February 6, 2018
